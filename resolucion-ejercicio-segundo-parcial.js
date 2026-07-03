@@ -77,9 +77,17 @@ listaTareas.addEventListener("click", (e) => {
   if (e.target.classList.contains("btn-eliminar")) {
     eliminarTarea(idPadre);
   }
+
+  if (e.target.classList.contains("btn-editar")) {
+    mostrarInfo(idPadre);
+  }
 });
 
-const mostrarInfo = () => {};
+const mostrarInfo = (id) => {
+  const tareaEncontrada = tareas.find((tarea) => tarea.id === id);
+
+  inputTarea.value = tareaEncontrada.descripcion;
+};
 
 // Punto de entrada: lee el input, crea la tarea y actualiza el estado
 const agregarTarea = () => {
